@@ -1,0 +1,54 @@
+<div class=" container-fluid" style='position: relative;'>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card-title">Summary</div>
+                        </div>
+                        <div class="col-md-4">
+                            <a [routerLink]="['/country']" class="btn btn-outline-primary float-right">Back</a>
+                      </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card-body">
+                            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+                                class=" table table-bordered row-border hover">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Country</th>
+                                        <th>New Confirmed</th>
+                                        <th>Total Confirmed</th>
+                                        <th>New Deaths</th>
+                                        <th>Total Deaths</th>
+                                        <th>New Recovered</th>
+                                        <th>Total Recovered</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let d of _data; let i = index">
+                                        <td>{{ i+ 1}}</td>
+                                        <td>{{ d.Country }}</td>
+                                        <td>{{ d.NewConfirmed }}</td>
+                                        <td>{{ d.TotalConfirmed }}</td>
+                                        <td>{{ d.NewDeaths }}</td>
+                                        <td>{{ d.TotalDeaths }}</td>
+                                        <td>{{ d.NewRecovered }}</td>
+                                        <td>{{ d.TotalRecovered }}</td>
+                                        <td>{{ d.Date | date:'dd/MM/yyyy'}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ngx-ui-loader [loaderId]="'ldr'"></ngx-ui-loader>
+</div>
